@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './PasswordInfo/PasswordInfo';
+import PasswordInfo from './PasswordInfo/PasswordInfo';
 
 class App extends Component {
+  state = {
+    passwords: [
+      {username: 'bob@bobmail.com', password: 'bobpassword' },
+      {username: 'sally@sallymail.com', password: 'sallypassword'},
+      {username: 'fred@fredmail.com', password: 'fredpassword'}
+    ]
+  }
+
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <PasswordInfo username={this.state.passwords[0].username} password={this.state.passwords[0].password}/>
       </div>
     );
   }
