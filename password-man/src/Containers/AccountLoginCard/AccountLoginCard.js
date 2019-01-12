@@ -9,20 +9,24 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
-
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  margin: {
-    margin: theme.spacing.unit,
-  },
-  textField: {
-    flexBasis: 200,
-  },
-});
+const styles = {
+    card: {
+      maxWidth: 1000,
+    },
+    media: {
+      // ⚠️ object-fit is not supported by IE 11.
+      objectFit: 'cover',
+    },
+  };
+  
 
 const ranges = [
   {
@@ -39,7 +43,7 @@ const ranges = [
   },
 ];
 
-class AccountLogin extends React.Component {
+class AccountLoginCard extends React.Component {
   state = {
     amount: '',
     password: '',
@@ -68,7 +72,7 @@ class AccountLogin extends React.Component {
 
   render() {
     const { classes } = this.props;
-    this.state.username = this.props.username;
+    //this.state.username = this.props.username;
 
 
     console.log('showUsername: ', this.state.showUsername);
@@ -76,9 +80,13 @@ class AccountLogin extends React.Component {
 
     return (
       <div>
-      <Grid container justify="center" alignItems="center">      
-       <Avatar className={classes.avatar}>S</Avatar>       
-        <TextField
+    <Card className={classes.card}>
+      <CardActionArea>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {this.props.provider}
+          </Typography>
+          <TextField
           id="filled-adornment-username"
           className={classNames(classes.margin, classes.textField)}
           variant="filled"
@@ -98,7 +106,8 @@ class AccountLogin extends React.Component {
               </InputAdornment>
             ),
           }}
-        />        
+        /> 
+
         <TextField
           id="filled-adornment-password"
           className={classNames(classes.margin, classes.textField)}
@@ -119,15 +128,26 @@ class AccountLogin extends React.Component {
               </InputAdornment>
             ),
           }}
-        />
-        </Grid>
+        />        
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+
       </div>
     );
   }
 }
 
-AccountLogin.propTypes = {
+AccountLoginCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(AccountLogin);
+export default withStyles(styles)(AccountLoginCard);
