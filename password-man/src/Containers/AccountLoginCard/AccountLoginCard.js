@@ -16,6 +16,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 
 const styles = {
     card: {
@@ -95,6 +96,15 @@ class AccountLoginCard extends React.Component {
           value={this.state.username}
           onChange={this.handleChange('username')}
           InputProps={{
+            startAdornment: (
+                <InputAdornment variant="filled" position="start">
+                  <IconButton
+                    aria-label="Copy"
+                  >
+                    copy
+                  </IconButton>
+                </InputAdornment>
+              ),
             endAdornment: (
               <InputAdornment variant="filled" position="end">
                 <IconButton
@@ -117,6 +127,15 @@ class AccountLoginCard extends React.Component {
           value={this.state.password}
           onChange={this.handleChange('password')}
           InputProps={{
+            startAdornment: (
+                <InputAdornment variant="filled" position="start">
+                  <IconButton
+                    aria-label="Copy"
+                  >
+                    copy
+                  </IconButton>
+                </InputAdornment>
+              ),             
             endAdornment: (
               <InputAdornment variant="filled" position="end">
                 <IconButton
@@ -128,16 +147,35 @@ class AccountLoginCard extends React.Component {
               </InputAdornment>
             ),
           }}
-        />        
+        />             
         </CardContent>
       </CardActionArea>
       <CardActions>
+        <Grid container className={classes.root}>
+        <Grid item xs={12}>
+          <Grid
+            container
+            spacing={26}
+            className={classes.demo}
+            alignItems= 'center'
+            direction='row'
+          >
+
+        <Grid key='1' item alignItems= 'center' direction='row'>
         <Button size="small" color="primary">
-          Share
+          Delete 
         </Button>
+        </Grid>
+        <Grid key='2' item            alignItems= 'center' direction='row'>
         <Button size="small" color="primary">
-          Learn More
+          Edit 
         </Button>
+        </Grid>       
+
+
+            </Grid>
+        </Grid>
+        </Grid>
       </CardActions>
     </Card>
 

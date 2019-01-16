@@ -18,6 +18,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Button from '@material-ui/core/Button';
+import MoreIcon from '@material-ui/icons/MoreVert';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 const drawerWidth = 240;
 
@@ -116,6 +120,13 @@ class PersistentDrawerLeft extends React.Component {
             <Typography variant="h6" color="inherit" noWrap>
               Open Password Manager
             </Typography>
+            <Button color="inherit">Add</Button> 
+            <IconButton color="inherit">
+              <MoreIcon />
+            </IconButton> 
+            <Fab color="secondary" aria-label="Add" className={classes.fabButton}>
+            <AddIcon />
+          </Fab>                                  
           </Toolbar>
         </AppBar>
         <Drawer
